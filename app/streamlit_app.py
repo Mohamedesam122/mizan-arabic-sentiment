@@ -4,6 +4,12 @@ Run:  streamlit run app/streamlit_app.py
 """
 import json
 import os
+import sys
+from pathlib import Path
+
+# Streamlit puts the script's own directory (not the project root) on sys.path,
+# so make the project root importable no matter how the app is launched.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import joblib
 import pandas as pd

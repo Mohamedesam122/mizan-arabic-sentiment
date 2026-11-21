@@ -2,6 +2,9 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
+# Make the project root importable for every entrypoint (uvicorn, streamlit).
+ENV PYTHONPATH=/app
+
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
